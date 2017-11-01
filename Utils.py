@@ -19,8 +19,6 @@ def file2sequence(filename):
     sequences = []
     if os.path.isfile('data/{}.txt'.format(filename)):
         f = open('data/{}.txt'.format(filename)) 
-    elif os.path.isfile('/nv/hcoc1/sxiao40/data/code/MultiVariatePointProcess-master/example/data/{}.txt'.format(filename)):
-        f = open('/nv/hcoc1/sxiao40/data/code/MultiVariatePointProcess-master/example/data/{}.txt'.format(filename)) 
     else:
         print filename
         raise Exception("File doesn't exist.")
