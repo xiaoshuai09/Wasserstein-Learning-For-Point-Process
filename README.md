@@ -10,8 +10,8 @@ If the code helps your research, please cite our work.
 
     @inproceedings{xiao2017wasserstein,
     title={Wasserstein Learning of Deep Generative Point Process Models.},
-    author={Xiao, Shuai and Farajtabar, Mehrdad and Ye, Xiaojing and Yan, Junchi and Xiaokang, Yang and Song, Le and Zha, Hongyuan},
-    booktitle={Advances in Neural Information Processing Systems},
+    author={Xiao, Shuai and Farajtabar, Mehrdad and Ye, Xiaojing and Yan, Junchi and Yang, Xiaokang and Song, Le and Zha, Hongyuan},
+    booktitle={Advances in Neural Information Processing Systems 30},
     year={2017}
     }
 
