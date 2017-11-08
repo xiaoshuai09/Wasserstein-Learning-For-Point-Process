@@ -24,6 +24,11 @@ If the code helps your research, please cite our work.
 - Language: TensorFlow 1.0
 - GPU is strongly recommended when training.
 
+## Usage
+
+- python ppwgan DATA NUM_Seq Lambda  #  for CPU
+- CUDA_VISIBLE_DEVICES=0 python ppwgan DATA NUM_Seq Lambda  #  for GPU
+
 ## Notes
 
 - For bugs and questions, contact: benjaminforever at sjtu.edu.cn
