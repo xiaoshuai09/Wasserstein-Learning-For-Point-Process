@@ -244,12 +244,8 @@ pre_train_op = tf.train.RMSPropOptimizer(learning_rate=5e-5).minimize(pre_train_
 
 # WGAN Lipschitz constraint 
 if MODE == 'wgan-lp':
-    if D_DIFF:
-      min_steps = tf.minimum(tf.shape(fake_data)[1],tf.shape(real_data)[1])
-      residual = tf.concat([(real_data*real_mask)[:,:min_steps,:]-(fake_data*fake_mask)[:,:min_steps,:],(real_data*real_mask)[:,min_steps:,:],(fake_data*fake_mask)[:,:min_steps:,:]],axis=1)
-      lipschtiz_divergence = tf.abs(D_real-D_fake)/tf.sqrt(tf.reduce_sum(tf.square(residual), axis=[1,2])+0.00001)
-    else:
-      lipschtiz_divergence = tf.abs(D_real-D_fake)/tf.sqrt(tf.reduce_sum(tf.square(tf.cumsum(real_data,axis=1)*real_mask-tf.cumsum(fake_data,axis=1)*fake_mask), axis=[1,2])+0.00001)
+    length_ = tf.minimum(tf.shape(real_data)[1],tf.shape(fake_data)[1])
+    lipschtiz_divergence = tf.abs(D_real-D_fake)/tf.sqrt(tf.reduce_sum(tf.square(real_data[:,:length_,:]-fake_data[:,:length_,:]), axis=[1,2])+0.00001)
 
     lipschtiz_divergence = tf.reduce_mean((lipschtiz_divergence-1)**2)
     D_loss += LAMBDA_LP*lipschtiz_divergence
